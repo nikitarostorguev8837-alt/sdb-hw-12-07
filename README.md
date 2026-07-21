@@ -28,9 +28,9 @@
 graph TD
 MainDB[Master<br>user, stores] --> Books(Запросы к books)
 
-Books --> Slave1[Shard 1<br>Slave 1<br>books 1-100]
-Books --> Slave2[Shard 2<br>Slave 2<br>books 101-200]
-Books --> Slave3[Shard 3<br>Slave 3<br>books 201-...]
+Books --> Master1[Master 1<br>books 1-100]
+Books --> Master2[Master 2<br>books 101-200]
+Books --> Master3[Master 3<br>books 201-...]
 ```
 
 ##### Вертикальный шардинг:
