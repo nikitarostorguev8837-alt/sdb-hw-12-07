@@ -24,23 +24,30 @@
 ##### Горизонтальный шардинг:
 *Книг в БД так много, что таблица с ними не помещается на один сервер, разобью таблицу **books** по серверам*
 
-##### Вертикальный шардинг:
-*Чтение по каждой таблице очень велико, разнесем таблицы **books**, **users**, **stores** на разные слейвы*
-
-`Каждая квадратная блоксхема - отдельный сервер`
 ```mermaid
 graph TD
-MainDB[MainDB<br>Master] --> Users(Запросы к users)
+MainDB[Master<br>user, stores] --> Users(Запросы к users)
 MainDB --> Books(Запросы к books)
 MainDB --> Stores(Запросы к stores)
 
-Users --> Master1[Master А<br>users]
-Books --> Master2[Master Б<br>books]
-Stores --> Master3[Master В<br>stores]
+Books --> Slave1[Shard 1<br>Slave 1<br>books 1-100]
+Books --> Slave2[Shard 2<br>Slave 2<br>books 101-200]
+Books --> Slave3[Shard 3<br>Slave 3<br>books 201-...]
+```
 
-Master2 --> Slave1[Shard 1<br>Slave 1<br>books 1-100]
-Master2 --> Slave2[Shard 2<br>Slave 2<br>books 101-200]
-Master2 --> Slave3[Shard 3<br>Slave 3<br>books 201-...]
+##### Вертикальный шардинг:
+*Чтение по каждой таблице очень велико, разнесем таблицы **books**, **users**, **stores** на разные слейвы*
+
+```mermaid
+graph TD
+MainDB[MainDB<br>Master<br>user, stores] --> Users(Запросы к users)
+MainDB --> Books(Запросы к books)
+MainDB --> Stores(Запросы к stores)
+
+Users --> Slave1[Slave А<br>users]
+Books --> Slave2[Slave Б<br>books]
+Stores --> Slave3[Slave В<br>stores]
+
 ```
 
 ---
