@@ -38,7 +38,7 @@ Books --> Master3[Master 3<br>books 201-...]
 
 ```mermaid
 graph TD
-MainDB[MainDB<br>Master<br>user, stores] --> Users(Запросы к users)
+MainDB[MainDB<br>Master<br>user, stores, books] --> Users(Запросы к users)
 MainDB --> Books(Запросы к books)
 MainDB --> Stores(Запросы к stores)
 
