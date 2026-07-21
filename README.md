@@ -26,9 +26,7 @@
 
 ```mermaid
 graph TD
-MainDB[Master<br>user, stores] --> Users(Запросы к users)
-MainDB --> Books(Запросы к books)
-MainDB --> Stores(Запросы к stores)
+MainDB[Master<br>user, stores] --> Books(Запросы к books)
 
 Books --> Slave1[Shard 1<br>Slave 1<br>books 1-100]
 Books --> Slave2[Shard 2<br>Slave 2<br>books 101-200]
