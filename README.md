@@ -28,7 +28,7 @@
 *Чтение по каждой таблице очень велико, разнесем таблицы **books**, **users**, **stores** на разные слейвы*
 
 ```mermaid
-grahh TD
+graph TD
 MainDB[Приложение] --> Users(Запросы к users)
 MainDB --> Books(Запросы к books)
 MainDB --> Stores(Запросы к stores)
