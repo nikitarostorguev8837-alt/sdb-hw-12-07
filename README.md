@@ -26,11 +26,9 @@
 
 ```mermaid
 graph TD
-MainDB[Master<br>user, stores] --> Books(Запросы к books)
-
-Books --> Master1[Master 1<br>books 1-100]
-Books --> Master2[Master 2<br>books 101-200]
-Books --> Master3[Master 3<br>books 201-...]
+MainDB[Master<br>user, stores] --> Master1[Master 1<br>books 0-100]
+MainDB --> Master2[Master 2<br>books 101-200]
+MainDB --> Master3[Master 3<br>books 201-...]
 ```
 
 ##### Вертикальный шардинг:
