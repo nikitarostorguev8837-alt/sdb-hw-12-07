@@ -36,13 +36,9 @@ MainDB --> Master3[Master 3<br>books 201-...]
 
 ```mermaid
 graph TD
-MainDB[MainDB<br>Master<br>user, stores, books] --> Users(Запросы к users)
-MainDB --> Books(Запросы к books)
-MainDB --> Stores(Запросы к stores)
-
-Users --> Slave1[Slave А<br>users]
-Books --> Slave2[Slave Б<br>books]
-Stores --> Slave3[Slave В<br>stores]
+MainDB[MainDB<br>Master<br>user, stores, books] --> Slave1[Slave А<br>users]
+MainDB --> Slave2[Slave Б<br>books]
+MainDB --> Slave3[Slave В<br>stores]
 
 ```
 
