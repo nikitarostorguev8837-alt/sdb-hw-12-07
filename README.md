@@ -27,9 +27,10 @@
 ##### Вертикальный шардинг:
 *Чтение по каждой таблице очень велико, разнесем таблицы **books**, **users**, **stores** на разные слейвы*
 
+`Каждая квадратная блоксхема - отдельный сервер`
 ```mermaid
 graph TD
-MainDB[MainDB] --> Users(Запросы к users)
+MainDB[MainDB<br>Master] --> Users(Запросы к users)
 MainDB --> Books(Запросы к books)
 MainDB --> Stores(Запросы к stores)
 
@@ -37,9 +38,9 @@ Users --> Master1[Master А<br>users]
 Books --> Master2[Master Б<br>books]
 Stores --> Master3[Master В<br>stores]
 
-Master2 --> Slave1[Slave 1<br>store 1,4,7]
-Master2 --> Slave2[Slave 2<br>store 2,5,8]
-Master2 --> Slave3[Slave 3<br>store 3,6,9]
+Master2 --> Slave1[Shard 1<br>Slave 1<br>books 1-100]
+Master2 --> Slave2[Shard 2<br>Slave 2<br>books 101-200]
+Master2 --> Slave3[Shard 3<br>Slave 3<br>books 201-...]
 ```
 
 ---
