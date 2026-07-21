@@ -29,7 +29,7 @@
 
 ```mermaid
 graph TD
-MainDB[Приложение] --> Users(Запросы к users)
+MainDB[MainDB] --> Users(Запросы к users)
 MainDB --> Books(Запросы к books)
 MainDB --> Stores(Запросы к stores)
 
